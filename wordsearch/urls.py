@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
         path('', views.home, name='wordsearch-home'),
-        path('q/<str:words>/', views.jquery, name='wordsearch-json')
+        path('q=<str:words>/', views.jquery, name='wordsearch-json')
 ]
