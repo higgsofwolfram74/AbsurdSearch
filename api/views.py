@@ -6,13 +6,14 @@ from pathlib import Path
 import random
 
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
+from django.views.decorators.csrf import csrf_exempt
 from . import serializer
 from .models import Words
+from .forms import UploadFileForm
+from .validator import validation
 
 import json
-
-
 
 
 def jquery(request, words="", num=50) -> Optional[JsonResponse]:
@@ -29,3 +30,19 @@ def jquery(request, words="", num=50) -> Optional[JsonResponse]:
     
     return JsonResponse(word_dict)
         
+@csrf_exempt
+def file_upload(request):
+    if request.method == 'POST':
+
+        response = validation(request.FILES['file'])
+
+        if response == None:
+            raise Http404("Bad file upload")
+        
+        return JsonResponse({"words": response["wordslist"]})
+    
+    else:
+        form = UploadFileForm()
+        raise Http404("Incorrect method")
+
+    raise Http404("Unknown error")

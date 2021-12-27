@@ -33,6 +33,7 @@ export default function Navbar() {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: "flex", md: "flex" } }}
+            
           >
             Absurd Search
           </Typography>

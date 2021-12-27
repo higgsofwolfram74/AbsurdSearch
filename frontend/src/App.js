@@ -21,15 +21,7 @@ const navtheme = createTheme({
   },
 });
 
-const darkTheme = makeStyles((theme) => ({
-  darkMode: {
-    background: "#000",
-  },
-}));
-
 export default function App() {
-  const classes = darkTheme();
-
   return (
     <div>
       <CssBaseline />
@@ -37,17 +29,15 @@ export default function App() {
         <Navbar />
       </ThemeProvider>
       <div>
-        <Paper className={classes.darkMode}>
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route
-              path="/generator"
-              element={<Wordsearchgen submitted={false} />}
-            />
-            <Route path="/solver" element={<Wordsearchsolve />} />
-            <Route exact path="/" element={<About />} />
-          </Routes>
-        </Paper>
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/generator"
+            element={<Wordsearchgen submitted={false} />}
+          />
+          <Route path="/solver" element={<Wordsearchsolve />} />
+          <Route exact path="/" element={<About />} />
+        </Routes>
       </div>
     </div>
   );

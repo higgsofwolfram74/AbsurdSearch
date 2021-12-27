@@ -68,10 +68,19 @@ export default function Form(props) {
         </FormControl>
       </Grid>
       <Grid item xs={12} align="center">
-        <MyButton
-          submitWordsearch={submitWordsearch}
-          isFormInvalid={isFormInvalid}
-        />
+        {isFormInvalid ? (
+          <MyButton
+            words={wordList}
+            isFormInvalid={true}
+            submitWordsearch={submitWordsearch}
+          />
+        ) : (
+          <MyButton
+            words={wordList}
+            isFormInvalid={false}
+            submitWordsearch={submitWordsearch}
+          />
+        )}
       </Grid>
     </Grid>
   );
