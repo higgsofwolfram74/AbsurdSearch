@@ -5,7 +5,8 @@ import Link from "@mui/material/Link";
 export default function About() {
   return (
     <div>
-      <Typography variant="h5" component="div">
+      <Typography variant="h5" component="div" align="center">
+        <br />
         Hello! This is a fun website I made to practice exposing API's to <br />{" "}
         my other projects for my friends to use. Feel free to generate <br />
         wordsearches and use the solver on them as you please. <br /> If you

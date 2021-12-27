@@ -5,8 +5,10 @@ import Navbar from "./components/Navbar";
 import Wordsearchsolve from "./components/Wordsearchsolve";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import { makeStyles } from "@mui/styles";
 import { teal } from "@mui/material/colors";
+import Paper from "@mui/material/Paper";
+import { CssBaseline } from "@mui/material";
 
 const navtheme = createTheme({
   palette: {
@@ -19,31 +21,33 @@ const navtheme = createTheme({
   },
 });
 
-const darktheme = createTheme({
-  palette: {
-    type: "dark",
+const darkTheme = makeStyles((theme) => ({
+  darkMode: {
+    background: "#000",
   },
-});
+}));
 
 export default function App() {
+  const classes = darkTheme();
+
   return (
     <div>
-      <ThemeProvider theme={darktheme}>
-        <CssBaseline />
-      </ThemeProvider>
+      <CssBaseline />
       <ThemeProvider theme={navtheme}>
         <Navbar />
       </ThemeProvider>
       <div>
-        <Routes>
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/generator"
-            element={<Wordsearchgen submitted={false} />}
-          />
-          <Route path="/solver" element={<Wordsearchsolve />} />
-          <Route exact path="/" element={<About />} />
-        </Routes>
+        <Paper className={classes.darkMode}>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/generator"
+              element={<Wordsearchgen submitted={false} />}
+            />
+            <Route path="/solver" element={<Wordsearchsolve />} />
+            <Route exact path="/" element={<About />} />
+          </Routes>
+        </Paper>
       </div>
     </div>
   );
