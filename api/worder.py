@@ -260,6 +260,9 @@ class WordsearchGenerator(WordPlacer):
         #return re.sub('[^a-z\n]', '', np.array_str(self.wordsearch))
         return str(self.wordsearch)
 
+
+    def to_list(self):
+        return self.wordsearch.tolist()
     # some vowels to make the wordsearch seem legit
     def random_vowels(self) -> None:
         vowels: str = "aeiouy"

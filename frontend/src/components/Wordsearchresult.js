@@ -19,9 +19,10 @@ function exportToJson(objectData) {
 }
 
 export default function Wordsearchresult(props) {
-  /* useEffect(() => {
+  useEffect(() => {
     exportToJson(props);
-  }); */
+  });
+  //console.log(props);
 
   return <div>thanks</div>;
 }

@@ -1,19 +1,19 @@
-from django.shortcuts import render
-
-# Create your views here.
 from typing import Optional
-from pathlib import Path
 import random
+from functools import reduce
+import operator
 
 from django.shortcuts import render
 from django.http import JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
+
+import rust2py
+
 from . import serializer
 from .models import Words
 from .forms import UploadFileForm
 from .validator import validation
 
-import json
 
 
 def jquery(request, words="", num=50) -> Optional[JsonResponse]:
@@ -21,8 +21,6 @@ def jquery(request, words="", num=50) -> Optional[JsonResponse]:
         return None
     
     word_dict = serializer.serializer(words)
-
-    print(word_dict["wordlist"])
 
     word_dict["wordlist"] += random.choices(Words.objects.get(pk=1).words["words"], k = num)
 
@@ -38,8 +36,13 @@ def file_upload(request):
 
         if response == None:
             raise Http404("Bad file upload")
+
+        words_found = rust2py.start(
+            reduce(operator.add, response["wordsearch"]),
+            len(response["wordsearch"][0]), 
+            response["wordslist"])
         
-        return JsonResponse({"words": response["wordslist"]})
+        return JsonResponse({"words": list(map(list, words_found))})
     
     else:
         form = UploadFileForm()

@@ -30,7 +30,7 @@ export default function Form(props) {
   };
 
   const handleChange = (event) => {
-    console.log(event.target.value);
+    //console.log(event.target.value);
     const swords = isValid(event.target.value);
 
     if (swords.length > 0) {
@@ -38,7 +38,7 @@ export default function Form(props) {
     }
   };
 
-  const submitWordsearch = (words) => props.submitter(words);
+  const submitWordsearch = () => props.submitter(wordList["words"]);
 
   return (
     <Grid container spacing={1}>
