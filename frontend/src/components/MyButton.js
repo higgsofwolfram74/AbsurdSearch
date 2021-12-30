@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import Button from "@mui/material/Button";
 
 export default function MyButton(props) {

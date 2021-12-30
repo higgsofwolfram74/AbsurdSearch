@@ -5,16 +5,15 @@ import json
 def validation(obj: File) -> Optional[Dict]:
     print(obj.name, obj.size)
     if obj.name.split(".")[1] != "json":
-        print("yo")
+        print("File is not JSON formatted")
         return None
 
-    elif obj.size >= 700000:
-        print("yo2")
+    elif obj.size >= 1000000:
+        print("File is too large")
         return None
 
     else:
         response = json.load(obj)
-        print(response.keys())
         
         return {"wordslist": response["wordslist"], "wordsearch": response["wordsearch"]}
     
