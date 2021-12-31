@@ -4,6 +4,7 @@ import React from "react";
 export default function FoundWords(props) {
   return (
     <Paper>
+      <br />
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
           <Typography component="h6" variant="h6">
@@ -22,6 +23,7 @@ export default function FoundWords(props) {
           })}
         </Grid>
       </Grid>
+      <br />
     </Paper>
   );
 }

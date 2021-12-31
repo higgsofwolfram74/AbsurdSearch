@@ -37,10 +37,11 @@ export default function Wordsearchsolve(props) {
   } else {
     return (
       <Paper>
+        <br />
         <Grid container spacing={1}>
           <Grid item xs={12} align="center">
             <Typography component="h4" variant="h4">
-              Please upload JSON file of wordsearch you want to solve.
+              Please upload JSON file of wordsearch you want to solve
             </Typography>
           </Grid>
           <Grid item xs={12} align="center">
@@ -59,6 +60,7 @@ export default function Wordsearchsolve(props) {
             </Button>
           </Grid>
         </Grid>
+        <br />
       </Paper>
     );
   }

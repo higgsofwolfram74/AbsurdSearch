@@ -1,5 +1,14 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider } from "@mui/material";
+
+const myStyle = createTheme({
+  palette: {
+    secondary: {
+      main: "#f44336",
+    },
+  },
+});
 
 export default function MyButton(props) {
   if (!props.isFormInvalid) {
@@ -15,9 +24,11 @@ export default function MyButton(props) {
     );
   } else {
     return (
-      <Button color="secondary" type="submit" variant="contained">
-        Generate Wordsearch
-      </Button>
+      <ThemeProvider theme={myStyle}>
+        <Button color="secondary" type="submit" variant="contained">
+          Generate Wordsearch
+        </Button>
+      </ThemeProvider>
     );
   }
 }

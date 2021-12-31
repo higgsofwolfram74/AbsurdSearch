@@ -17,6 +17,7 @@ export default function About() {
         and create <br />
         an issue there.
       </Typography>
+      <br />
     </Paper>
   );
 }

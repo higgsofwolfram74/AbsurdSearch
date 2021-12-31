@@ -43,6 +43,7 @@ export default function Form(props) {
 
   return (
     <Paper>
+      <br />
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
           <Typography component="h4" variant="h4">
@@ -85,6 +86,7 @@ export default function Form(props) {
           )}
         </Grid>
       </Grid>
+      <br />
     </Paper>
   );
 }

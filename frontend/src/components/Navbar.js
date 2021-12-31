@@ -8,18 +8,20 @@ import {
   Typography,
   Stack,
 } from "@mui/material/";
+import { makeStyles } from "@mui/styles";
 
-//const useStyles = makeStyles((theme) => ({
-//  appButton: {
-//    [theme.breakpoints.down("sm")]: { display: "none" },
-//  },
-//  appMenu: {
-//    [theme.breakpoints.up("sm")]: { display: "none" },
-//  },
-//}));
+const useStyles = makeStyles((theme) => ({
+  right: {
+    marginLeft: "auto",
+  },
+
+  sumn: {
+    color: "#f8f0f3",
+  },
+}));
 
 export default function Navbar() {
-  //const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <AppBar position="static" color="primary">
@@ -30,10 +32,11 @@ export default function Navbar() {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: "flex", md: "flex" } }}
+            className={classes.sumn}
           >
             Absurd Search
           </Typography>
-          <Stack direction="row" spacing={2}>
+          <Stack className={classes.right} direction="row" spacing={2}>
             <Button
               color="secondary"
               variant="outlined"

@@ -29,9 +29,7 @@ def jquery(request, words="", num=50) -> Optional[JsonResponse]:
     return JsonResponse(word_dict)
         
 @csrf_exempt
-def file_upload(request):
-    collected_words = set()
-    final = []
+def wordsearch_upload(request):
     if request.method == 'POST':
         response = validation(request.FILES['myFile'])
 
@@ -42,6 +40,9 @@ def file_upload(request):
             reduce(operator.add, response["wordsearch"]),
             len(response["wordsearch"][0]), 
             set(response["wordslist"]))))
+
+        collected_words = set()
+        final = []
 
         for word in words_found:
             if word[0] not in collected_words:

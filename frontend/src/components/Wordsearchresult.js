@@ -27,6 +27,7 @@ export default function Wordsearchresult(props) {
 
   return (
     <Paper>
+      <br />
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
           <Typography component="h4" variant="h4">
@@ -35,6 +36,7 @@ export default function Wordsearchresult(props) {
           </Typography>
         </Grid>
       </Grid>
+      <br />
     </Paper>
   );
 }
