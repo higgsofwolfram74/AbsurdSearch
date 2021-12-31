@@ -35,7 +35,10 @@ export default function App() {
             path="/generator"
             element={<Wordsearchgen submitted={false} />}
           />
-          <Route path="/solver" element={<Wordsearchsolve />} />
+          <Route
+            path="/solver"
+            element={<Wordsearchsolve submitted={false} />}
+          />
           <Route exact path="/" element={<About />} />
         </Routes>
       </div>

@@ -8,18 +8,18 @@ export default function FoundWords(props) {
         <Grid item xs={12} align="center">
           <Typography component="h6" variant="h6">
             The results are in! Wordsearch solver found:{" "}
-            {
-              //props.wordsearchResults.map((res) => {
-              //  return (
-              //    <Typography component="h6" variant="h6">
-              //      The word "{res[0]}" going {res[1].toLowerCase} at{" "}
-              //      {res[2][1]} units right and {res[2][0]} units down.
-              //    </Typography>
-              //  );
-              //})
-              console.log(props.wordsearchRes)
-            }
           </Typography>
+          {props.wordsearchRes.map(function (res) {
+            console.log(typeof res[1]);
+            return (
+              <Grid item xs={12} align="center">
+                <Typography component="h6" variant="h6">
+                  The word "{res[0]}" going {res[1].toLowerCase()} at{" "}
+                  {res[2][1]} units right and {res[2][0]} units down.
+                </Typography>
+              </Grid>
+            );
+          })}
         </Grid>
       </Grid>
     </Paper>

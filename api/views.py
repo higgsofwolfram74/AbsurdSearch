@@ -30,18 +30,25 @@ def jquery(request, words="", num=50) -> Optional[JsonResponse]:
         
 @csrf_exempt
 def file_upload(request):
+    collected_words = set()
+    final = []
     if request.method == 'POST':
         response = validation(request.FILES['myFile'])
 
         if response == None:
             raise Http404("Bad file upload")
 
-        words_found = rust2py.start(
+        words_found = list(map(list, rust2py.start(
             reduce(operator.add, response["wordsearch"]),
             len(response["wordsearch"][0]), 
-            set(response["wordslist"]))
+            set(response["wordslist"]))))
+
+        for word in words_found:
+            if word[0] not in collected_words:
+                collected_words.add(word[0])
+                final.append(word)
         
-        return JsonResponse({"words": list(map(list, words_found))})
+        return JsonResponse({"words": final})
     
     else:
         form = UploadFileForm()

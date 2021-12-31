@@ -1,10 +1,10 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
+import { Paper, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
 
 export default function About() {
   return (
-    <div>
+    <Paper>
       <Typography variant="h5" component="div" align="center" className="stuff">
         <br />
         Hello! This is a fun website I made to practice exposing API's to <br />{" "}
@@ -17,6 +17,6 @@ export default function About() {
         and create <br />
         an issue there.
       </Typography>
-    </div>
+    </Paper>
   );
 }

@@ -8,7 +8,7 @@ def validation(obj: File) -> Optional[Dict]:
         print("File is not JSON formatted")
         return None
 
-    elif obj.size >= 1000000:
+    elif obj.size >= 2000000:
         print("File is too large")
         return None
 

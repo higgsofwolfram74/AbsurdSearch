@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { Paper, Grid, Typography } from "@mui/material";
 
 function exportToJson(objectData) {
   let filename = "Wordsearch.json";
@@ -24,5 +25,16 @@ export default function Wordsearchresult(props) {
   });
   //console.log(props);
 
-  return <div>thanks</div>;
+  return (
+    <Paper>
+      <Grid container spacing={1}>
+        <Grid item xs={12} align="center">
+          <Typography component="h4" variant="h4">
+            Thanks for using AbsurdSearch. Please download your wordsearch and
+            send it to your friends.
+          </Typography>
+        </Grid>
+      </Grid>
+    </Paper>
+  );
 }

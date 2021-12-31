@@ -1,10 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Wordsearchresult from "./Wordsearchresult";
 import Form from "./Form";
-import { useEffect } from "react";
 
 export default function Wordsearchgen(props) {
   const [wordList, setWordList] = useState({

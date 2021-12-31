@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import {
   FormHelperText,
+  Paper,
   TextField,
   FormControl,
   Typography,
@@ -41,47 +42,49 @@ export default function Form(props) {
   const submitWordsearch = () => props.submitter(wordList["words"]);
 
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={12} align="center">
-        <Typography component="h4" variant="h4">
-          Generate a Wordsearch
-        </Typography>
+    <Paper>
+      <Grid container spacing={1}>
+        <Grid item xs={12} align="center">
+          <Typography component="h4" variant="h4">
+            Generate a Wordsearch
+          </Typography>
+        </Grid>
+        <Grid item xs={12} align="center">
+          <FormControl>
+            <TextField
+              onChange={handleChange}
+              error={isFormInvalid}
+              required={true}
+              margin="normal"
+              defaultValue=""
+            ></TextField>
+            <FormHelperText>
+              <div align="center">Words to put inside wordsearch</div>
+            </FormHelperText>
+            <FormHelperText color="secondary">
+              <div align="center">
+                No more than 20 words, 100 characters, and no numbers may be
+                submitted
+              </div>
+            </FormHelperText>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} align="center">
+          {isFormInvalid ? (
+            <MyButton
+              words={wordList}
+              isFormInvalid={true}
+              submitWordsearch={submitWordsearch}
+            />
+          ) : (
+            <MyButton
+              words={wordList}
+              isFormInvalid={false}
+              submitWordsearch={submitWordsearch}
+            />
+          )}
+        </Grid>
       </Grid>
-      <Grid item xs={12} align="center">
-        <FormControl>
-          <TextField
-            onChange={handleChange}
-            error={isFormInvalid}
-            required={true}
-            margin="normal"
-            defaultValue=""
-          ></TextField>
-          <FormHelperText>
-            <div align="center">Words to put inside wordsearch</div>
-          </FormHelperText>
-          <FormHelperText color="secondary">
-            <div align="center">
-              No more than 20 words, 100 characters, and no numbers may be
-              submitted
-            </div>
-          </FormHelperText>
-        </FormControl>
-      </Grid>
-      <Grid item xs={12} align="center">
-        {isFormInvalid ? (
-          <MyButton
-            words={wordList}
-            isFormInvalid={true}
-            submitWordsearch={submitWordsearch}
-          />
-        ) : (
-          <MyButton
-            words={wordList}
-            isFormInvalid={false}
-            submitWordsearch={submitWordsearch}
-          />
-        )}
-      </Grid>
-    </Grid>
+    </Paper>
   );
 }
