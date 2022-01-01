@@ -20,7 +20,7 @@ export default function Form(props) {
     if (
       !pattern.test(words) ||
       words.length > 100 ||
-      words.split(" ").length > 20
+      words.split(" ").length > 10
     ) {
       setIsFormInvalid(true);
       return "";
@@ -64,7 +64,7 @@ export default function Form(props) {
             </FormHelperText>
             <FormHelperText color="secondary">
               <div align="center">
-                No more than 20 words, 100 characters, and no numbers may be
+                No more than 10 words, 100 characters, and no numbers may be
                 submitted
               </div>
             </FormHelperText>

@@ -11,7 +11,7 @@ export default function About() {
         my other projects for my friends to use. Feel free to generate <br />
         wordsearches and use the solver on them as you please. <br /> If you
         have any problems, please go to{" "}
-        <Link href="https://www.github.com/higgsofwolfram74">
+        <Link href="https://github.com/higgsofwolfram74/AbsurdSearch">
           my github
         </Link>{" "}
         and create <br />
